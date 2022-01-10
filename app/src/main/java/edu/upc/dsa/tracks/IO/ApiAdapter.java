@@ -13,7 +13,7 @@ public class ApiAdapter {
                 .setLenient()
                 .create();
 
-        String BASE_URL = "http://localhost:8080/dsaApp/";
+        String BASE_URL = "http://10.0.2.2:8080/dsaApp/";
 
         if (API_SERVICE == null) {
             Retrofit retrofit = new Retrofit.Builder()

@@ -1,6 +1,7 @@
 package edu.upc.dsa.tracks.IO;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,34 +12,39 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 import edu.upc.dsa.tracks.R;
 
 public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHolder>{
 
     Context context;
-    ArrayList<Track> list;
+    List<Track> list;
 
-    public RecycleAdapter (Context context, ArrayList<Track> list){
-        context = context;
-        list = list;
+    public RecycleAdapter (Context contexto, List<Track> lista){
+        context = contexto;
+        list = lista;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.activity_main, parent, false);
+        View view = inflater.inflate(R.layout.elemento_track, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        //holder.image.setImageResource(list.get(position).image);
-        holder.text1.setText(list.get(position).id);
-        holder.text2.setText(list.get(position).title);
-        holder.text3.setText(list.get(position).singer);
+        //Picasso.get().load(R.drawable.logo).into(holder.imageView);
+        Picasso.get().load("https://i.imgur.com/DvpvklR.png").into(holder.imageView);
+        Log.d("prueba", "onBindViewHolder" + list.get(position).getId());
+        holder.text1.setText(list.get(position).getId());
+        holder.text2.setText(list.get(position).getTitle())
+        ;
+        holder.text3.setText(list.get(position).getSinger());
         Track track = list.get(position);
     }
 
@@ -48,18 +54,18 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHold
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView image;
+        ImageView imageView;
         TextView text1;
         TextView text2;
         TextView text3;
         ConstraintLayout main;
         public ViewHolder(@NonNull View vista) {
             super(vista);
-            image = vista.findViewById(R.id.imageView);
+            imageView = vista.findViewById(R.id.image);
             text1 = vista.findViewById(R.id.id_rec);
             text2 = vista.findViewById(R.id.title_rec);
             text3 = vista.findViewById(R.id.singer_rec);
-            main = vista.findViewById(R.id.MainRecycle);
+            //main = vista.findViewById(R.id.MainRecycle);
         }
     }
 }

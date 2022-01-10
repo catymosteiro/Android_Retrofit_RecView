@@ -1,6 +1,6 @@
 package edu.upc.dsa.tracks.IO;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -8,6 +8,6 @@ import retrofit2.http.GET;
 public interface ApiService {
 
     @GET("tracks")
-    Call<ArrayList<Track>> getTracks();
+    Call<List<Track>> getTracks();
 
 }
