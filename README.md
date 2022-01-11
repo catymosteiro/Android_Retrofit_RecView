@@ -1,9 +1,11 @@
-# Android_Retrofit_RecView
+# Minimo 2
 
-Cliente Tracks:
+Consulta usuario y repositorios a la API de GitHub
 
+Implementaciones:
 - Retrofit
 - RecycleView
 - SplashScreen
+- Pantalla error
 
 Catalina L. Mosteiro Roman
