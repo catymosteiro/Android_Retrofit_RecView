@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<List<Repositorio>> call, Throwable t) {
-
                         }
                     });
                 }
