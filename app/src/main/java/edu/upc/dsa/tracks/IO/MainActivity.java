@@ -85,21 +85,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-/*
-    @Override
-    public void onResponse(Call<ArrayList<Track>> call, Response<ArrayList<Track>> response) {
-        Log.d("Response","Response: " + response.code());
-        if(response.isSuccessful()){
-            list = response.body();
-            RecycleAdapter adapter = new RecycleAdapter(this, list);
-            rec = findViewById(R.id.MainRecycle);
-            rec.setAdapter(adapter);
-            rec.setLayoutManager(new LinearLayoutManager(this));
-        }
-    }
-
-    @Override
-    public void onFailure(Call<ArrayList<Track>> call, Throwable t) {
-    }
-*/
 }
