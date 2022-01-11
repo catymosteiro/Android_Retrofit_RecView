@@ -5,14 +5,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -21,9 +18,9 @@ import edu.upc.dsa.tracks.R;
 public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHolder>{
 
     Context context;
-    List<Track> list;
+    List<Repositorio> list;
 
-    public RecycleAdapter (Context contexto, List<Track> lista){
+    public RecycleAdapter (Context contexto, List<Repositorio> lista){
         context = contexto;
         list = lista;
     }
@@ -38,14 +35,9 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        //Picasso.get().load(R.drawable.logo).into(holder.imageView);
-        Picasso.get().load("https://i.imgur.com/DvpvklR.png").into(holder.imageView);
-        Log.d("prueba", "onBindViewHolder" + list.get(position).getId());
-        holder.text1.setText(list.get(position).getId());
-        holder.text2.setText(list.get(position).getTitle())
-        ;
-        holder.text3.setText(list.get(position).getSinger());
-        Track track = list.get(position);
+        Log.d("prueba", "onBindViewHolder" + list.get(position).getLenguaje());
+        holder.text1.setText(list.get(position).getLenguaje());
+        holder.text2.setText(list.get(position).getNombre());
     }
 
     @Override
@@ -54,17 +46,13 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHold
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView imageView;
         TextView text1;
         TextView text2;
-        TextView text3;
         ConstraintLayout main;
         public ViewHolder(@NonNull View vista) {
             super(vista);
-            imageView = vista.findViewById(R.id.image);
-            text1 = vista.findViewById(R.id.id_rec);
-            text2 = vista.findViewById(R.id.title_rec);
-            text3 = vista.findViewById(R.id.singer_rec);
+            text1 = vista.findViewById(R.id.lenguaje_rec);
+            text2 = vista.findViewById(R.id.nombre_rec);
             //main = vista.findViewById(R.id.MainRecycle);
         }
     }
