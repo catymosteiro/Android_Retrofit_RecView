@@ -17,7 +17,7 @@ public class Alerta {
     public void showDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(myActivity);
         LayoutInflater layoutInflater = myActivity.getLayoutInflater();
-        builder.setView(layoutInflater.inflate(R.layout.activity_splash,null));
+        builder.setView(layoutInflater.inflate(R.layout.load,null));
         alertDialog = builder.create();
         alertDialog.show();
 
